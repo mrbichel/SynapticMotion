@@ -1,0 +1,26 @@
+<Widget>
+    <Kind>42</Kind>
+    <Name>Threshold</Name>
+    <Value>86</Value>
+</Widget>
+<Widget>
+    <Kind>42</Kind>
+    <Name>Persistence</Name>
+    <Value>11</Value>
+</Widget>
+<Widget>
+    <Kind>42</Kind>
+    <Name>maxDistance</Name>
+    <Value>20</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>Blobsize range</Name>
+    <HighValue>197.044342041</HighValue>
+    <LowValue>1.576354623</LowValue>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>showLabels</Name>
+    <Value>1</Value>
+</Widget>
