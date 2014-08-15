@@ -180,13 +180,13 @@ void ofxContentScene::updateScene() {
 
 void ofxContentScene::drawScene() {
     if(enabled) {
-        ofPushMatrix();
         ofPushStyle();
+        ofPushMatrix();
         fbo.begin();
         draw();
         fbo.end();
-        ofPopStyle();
         ofPopMatrix();
+        ofPopStyle();
     }
 }
 

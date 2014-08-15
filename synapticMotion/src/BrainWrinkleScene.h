@@ -12,7 +12,10 @@
 #include "ofxContentScene.h"
 #include "ofxCv.h"
 #include "ofxBiquadFilter.h"
-#include "ofx3DModelLoader.h"
+///#include "ofx3DModelLoader.h"
+
+#include "ofxAssimpModelLoader.h"
+#include "ofxAssimpMeshHelper.h"
 #include "Defines.h"
 
 class BrainWrinkleScene : public ofxContentScene {
@@ -31,6 +34,12 @@ public:
     unsigned int centerLabel;
     ofxBiquadFilter2f filter;
     
-    ofx3DModelLoader brainModel;
+    ofxAssimpModelLoader brainModel;
+    ofMesh brainMesh;
+    
+    ofLight light;
+    
+    ofVec3f lightpos;
+    
     
 };

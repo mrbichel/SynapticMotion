@@ -120,14 +120,19 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    
     // Draw scene fbo's
     ofPushStyle();
     ofNoFill();
     for(int i=0; i<scenes.size(); i++) {
         ofSetColor(255);
         ofFill();
+        
         ofPushStyle();
+        ofPushMatrix();
         scenes[i]->drawScene();
+        ofPopMatrix();
         ofPopStyle();
     }
     ofPopStyle();

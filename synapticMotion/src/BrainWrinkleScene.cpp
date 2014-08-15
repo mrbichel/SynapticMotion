@@ -16,7 +16,10 @@ void BrainWrinkleScene::setup(){
     filter.setQ(0.5);
     filter.setFc(0.05);
     
-    brainModel.loadModel("brain.3ds", 1);
+    brainModel.loadModel("brain.obj"/*"brain.obj"*/);
+    
+    
+    brainMesh = brainModel.getMesh(0);
 }
 
 void BrainWrinkleScene::update(){
@@ -32,27 +35,83 @@ void BrainWrinkleScene::update(){
     }
     center = filter.getValue();
     
+    
+    
+    //light.setPosition(lightpos*ofVec3f(OUTWIDTH,OUTHEIGHT,OUTHEIGHT));
+    
+    
+    light.setPosition(center);
+    
+    
+    //brainModel.update();
+    brainModel.setScale(4, 4, 1);
+    
 }
 
 void BrainWrinkleScene::draw(){
     
+    ofBackground(0,0,0);
     
+    ofEnableLighting();
+    light.enable();
     
+    ofPushMatrix();
+    
+    ofTranslate(OUTWIDTH/2, OUTHEIGHT/2);
+    
+    //ofRotateX(ofGetElapsedTimef());
+    //ofRotateY(ofGetElapsedTimef());
+    ofRotateZ(ofGetElapsedTimef());
+    
+    //brainModel.setPosition(OUTWIDTH/2, OUTHEIGHT/2, 0);
+    brainModel.drawFaces();
+    
+    ofPopMatrix();
+    
+    light.disable();
+    
+    ofDisableLighting();
 
     
-    ofBackground(0,0,0);
+    /*ofPushStyle();
+    glPushMatrix();
+    ofEnableLighting();
+    light.enable();
+    
+    
+    
     ofSetColor(255,255,255);
     
-    brainModel.setPosition(0, 0, 0);
+    
+    ofPushMatrix();
+    
+    ofRotateX(ofGetElapsedTimef());
+    ofRotateY(ofGetElapsedTimef());
+    ofRotateZ(ofGetElapsedTimef());
+
+    
+    //brainModel.setScale(10, 10, 10);
+    //brainModel.setPosition(OUTWIDTH/2, OUTHEIGHT/2, 0);
+    //brainModel.drawFaces();
     
     
-    brainModel.draw();
+    ofPopMatrix();
+    
+    ofSetColor(100,100,100);
+    
+    //brainModel.drawWireframe();
     
     ofSetColor(255,0,0);
     ofCircle(center, 10);
     
+    light.draw();
     
+    light.disable();
     
+    ofDisableLighting();
+    
+    glPopMatrix();
+    ofPopStyle();*/
     
 }
 
@@ -61,7 +120,8 @@ void BrainWrinkleScene::parseOscMessage(ofxOscMessage *m){
 
 void BrainWrinkleScene::setGui(){
     
-    //gui->addSlider("/gravity/x", -1, 1, &gravity.x);
-    //gui->addSlider("/gravity/y", -1, 1, &gravity.y);
+    gui->addSlider("/lightPos/x", 0, 1, &lightpos.x);
+    gui->addSlider("/lightPos/y", 0, 1, &lightpos.y);
+    gui->addSlider("/lightPos/z", 0, 1, &lightpos.z);
     
 }
