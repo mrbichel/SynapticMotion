@@ -18,7 +18,6 @@ void BrainWrinkleScene::setup(){
     
     brainModel.loadModel("brain.obj"/*"brain.obj"*/);
     
-    
     brainMesh = brainModel.getMesh(0);
 }
 
@@ -33,9 +32,7 @@ void BrainWrinkleScene::update(){
             centerLabel = t.getCurrentLabels()[0];
         }
     }
-    center = filter.getValue();
-    
-    
+    center = filter.value();
     
     //light.setPosition(lightpos*ofVec3f(OUTWIDTH,OUTHEIGHT,OUTHEIGHT));
     

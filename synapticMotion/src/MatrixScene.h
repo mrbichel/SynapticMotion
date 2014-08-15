@@ -13,6 +13,13 @@
 #include "ofxCv.h"
 #include "ofxBiquadFilter.h"
 
+
+class gridwalkers {
+public:
+    ofVec2f posOne;
+    ofVec2f posTwo;
+};
+
 class MatrixScene : public ofxContentScene {
     
 public:

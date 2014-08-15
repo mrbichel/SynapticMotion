@@ -33,15 +33,13 @@ void MatrixScene::update(){
             centerLabel = t.getCurrentLabels()[0];
         }
     }
-    center = filter.getValue();
+    center = filter.value();
 }
 
 void MatrixScene::draw(){
     
     ofBackground(0,0,0);
     
-
-
     // http://stackoverflow.com/questions/5915753/generate-a-plane-with-triangle-strips
     
     // deform a plane
@@ -55,7 +53,6 @@ void MatrixScene::draw(){
     
     ofPushMatrix();
     ofTranslate(outCenter);
-    
     
     glBegin(GL_TRIANGLES);
     ofSetColor(linecolor);
@@ -72,10 +69,37 @@ void MatrixScene::draw(){
         
         //v.perpendicular();
         //glVertex2f(v.x, v.y);
-
         
     }
     glEnd();
+    
+    /*glBegin(GL_LINES);
+    ofSetColor(ofFloatColor(0,0,0,0.2));
+    for(int i=0;i<plane.getMesh().getVertices().size(); i++) {
+        ofVec3f v = plane.getMesh().getVertices()[i];
+        
+        ofVec2f c(center.x-OUTWIDTH/2,center.y-OUTHEIGHT/2);
+        if(c.distance(v) < centerSize*OUTWIDTH/2) {
+            glVertex2f(v.x, v.y);
+            glVertex2f(c.x,c.y);
+        }
+    }
+    glEnd();*/
+    
+    
+    /*glBegin(GL_POINTS);
+    ofSetColor(linecolor.getLerped(ofFloatColor(0,0,0,1), 0.8));
+    for(int i=0;i<plane.getMesh().getVertices().size(); i++) {
+        ofVec3f v = plane.getMesh().getVertices()[i];
+        
+        ofVec2f c(center.x-OUTWIDTH/2,center.y-OUTHEIGHT/2);
+        if(c.distance(v) < centerSize*OUTWIDTH/2) {
+            glVertex2f(v.x, v.y);
+            glVertex2f(c.x,c.y);
+        }
+    }
+    glEnd();*/
+    
     
     glBegin(GL_POINTS);
     ofSetColor(linecolor.getLerped(ofFloatColor(0,0,0,1), 0.8));

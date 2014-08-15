@@ -1,12 +1,12 @@
 <Widget>
     <Kind>42</Kind>
     <Name>Threshold</Name>
-    <Value>100</Value>
+    <Value>26</Value>
 </Widget>
 <Widget>
     <Kind>42</Kind>
     <Name>Persistence</Name>
-    <Value>11</Value>
+    <Value>22</Value>
 </Widget>
 <Widget>
     <Kind>42</Kind>
